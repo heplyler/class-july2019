@@ -1,0 +1,21 @@
+.card-view {
+  margin: 8px 0;
+}
+
+.body-textarea {
+  resize: none;
+  width: 100%;
+}
+
+.title-textarea {
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  resize: none;
+  width: 100%;
+}
+
+.mytitle
+{
+	color:red;
+}

@@ -2,3 +2,59 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.loginBox {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+  padding: 50px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+}
+
+.social-login {
+  display: block;
+  width: 50%;
+  margin: 5px auto;
+  text-decoration: none;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.social-login:hover {
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+}
+a.fb-login {
+  background-color: #3b5998;
+}
+a.google-login {
+  background-color: #db4437;
+}

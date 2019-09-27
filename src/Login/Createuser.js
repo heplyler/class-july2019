@@ -1,14 +1,16 @@
 import React from "react";
-import CryptoJS from "crypto-js";
-import userService from "../Backend/Backend";
+//import CryptoJS from "crypto-js";
+import { userService } from "../Backend/Backend";
+import Sociallogin from "./SocialLogin";
 
 class Createuser extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "" };
+    this.state = { username: "", password: "", email: "" };
 
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleEmailChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -20,22 +22,24 @@ class Createuser extends React.Component {
     this.setState({ password: event.target.value });
   }
 
+  handleEmailChange(event) {
+    this.setState({ email: event.target.value });
+  }
+
   handleSubmit(event) {
-    alert(
-      "A name was submitted: " +
-        this.state.username +
-        "password" +
-        this.state.password
+    //var strongPass = CryptoJS.MD5(this.state.password);
+    userService.CreateUser(
+      this.state.username,
+      this.state.password,
+      this.state.Email
     );
-    var strongPass = CryptoJS.MD5(this.state.password);
-    alert("we've hashed the password" + strongPass);
-    userService.Login(this.state.username, strongPass);
     event.preventDefault();
   }
 
   render() {
     return (
-      <div>
+      <div className="loginBox">
+        <Sociallogin />
         <form onSubmit={this.handleSubmit}>
           CreateUser: <br />
           <label>
@@ -59,12 +63,12 @@ class Createuser extends React.Component {
           </label>
           <br />
           <label>
-            Repeat:
+            Email:
             <input
-              id="passwordVal"
-              type="password"
+              id="emailVal"
+              type="text"
               //value={this.state.password}
-              onChange={this.handlePasswordChange}
+              onChange={this.handleEmailChange}
             />
           </label>
           <br />
